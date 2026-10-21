@@ -284,7 +284,9 @@ var Data = (function () {
     pt: {'Action & Adventure': 'Ação e Aventura', 'Sci-Fi & Fantasy': 'Ficção Científica e Fantasia', 'War & Politics': 'Guerra e Política',
       'Kids': 'Infantil', 'News': 'Notícias', 'Soap': 'Novela', 'Talk': 'Entrevistas'},
     es: {'Action & Adventure': 'Acción y Aventura', 'Sci-Fi & Fantasy': 'Ciencia ficción y Fantasía', 'War & Politics': 'Guerra y Política',
-      'Kids': 'Infantil', 'News': 'Noticias', 'Soap': 'Telenovela', 'Talk': 'Entrevistas'}
+      'Kids': 'Infantil', 'News': 'Noticias', 'Soap': 'Telenovela', 'Talk': 'Entrevistas'},
+    tr: {'Action & Adventure': 'Aksiyon ve Macera', 'Sci-Fi & Fantasy': 'Bilim Kurgu ve Fantastik', 'War & Politics': 'Savaş ve Siyaset',
+      'Kids': 'Çocuk', 'News': 'Haber', 'Soap': 'Pembe Dizi', 'Talk': 'Talk Show'}
   };
 
   /** The best backdrop: no text over it, the largest, then the best rated. */
@@ -314,7 +316,8 @@ var Data = (function () {
       }
       if (p.kind === 'movie' && o.runtime > 0) {
         var h = Math.floor(o.runtime / 60), m = o.runtime % 60;
-        parts.push(I18N.lang === 'en' ? (h ? h + 'h ' + m + 'm' : m + 'm') : (h ? h + ' h ' + m + ' min' : m + ' min'));
+        parts.push(I18N.lang === 'tr' ? (h ? h + ' sa ' + m + ' dk' : m + ' dk')
+            : I18N.lang === 'en' ? (h ? h + 'h ' + m + 'm' : m + 'm') : (h ? h + ' h ' + m + ' min' : m + ' min'));
       } else if (p.kind === 'tv' && o.number_of_seasons > 0) {
         var n = o.number_of_seasons;
         parts.push(tr(n === 1 ? '1 temporada' : n + ' temporadas', n === 1 ? '1 season' : n + ' seasons', n === 1 ? '1 temporada' : n + ' temporadas'));
